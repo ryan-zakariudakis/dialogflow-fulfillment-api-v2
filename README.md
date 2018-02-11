@@ -6,6 +6,8 @@ https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookRequest
 
 https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookResponse
 
+Working with Kotlin data classes, to generate a no arg constructor as well as full args constructor all values must be initialized. 
+
 ## To use this project
 
 `cd ~`

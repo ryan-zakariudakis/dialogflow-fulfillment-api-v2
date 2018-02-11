@@ -15,7 +15,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<kotlin.compiler.incremental>true</kotlin.compiler.incremental>
         <kotlin.version>1.2.21</kotlin.version>
-        <jackson-annotations.version>2.9.0</jackson-annotations.version>
+        <jackson-annotations.version>2.9.4</jackson-annotations.version>
     </properties>
 
     <dependencies>
