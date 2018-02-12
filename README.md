@@ -6,7 +6,11 @@ https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookRequest
 
 https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookResponse
 
-Working with Kotlin data classes, to generate a no arg constructor as well as full args constructor all values must be initialized. 
+Do not use Kotlin data classes.  Use plain classes and remember to implement equals()/hashCode()/toString(). Use Commons-Lang to counteract the boilerplate annoyance.
+
+This is to ensure optional fields can be assigned defaults without requiring `?` throught the code base and the resultant `!!` in any clients.
+
+This is required because of the way jackson works, it tries to override existing values with null on new object creation.
 
 ## To use this project
 
