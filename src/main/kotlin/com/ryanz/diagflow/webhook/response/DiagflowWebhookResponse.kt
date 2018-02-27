@@ -1,6 +1,7 @@
 package com.ryanz.diagflow.webhook.response
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.ryanz.diagflow.webhook.FulfillmentContext
 import com.ryanz.diagflow.webhook.FulfillmentEventInput
@@ -11,6 +12,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder
 
 // https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookResponse
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 class DiagflowWebhookResponse() {
 
         constructor(fulfillmentText: String?, fulfillmentMessages: List<FulfillmentMessage>?, source: String?, payload: Map<String, Any>?, outputContexts: List<FulfillmentContext>?, followupEventInput: FulfillmentEventInput?): this() {
@@ -23,18 +25,18 @@ class DiagflowWebhookResponse() {
         }
 
         @JsonProperty("fulfillmentText")
-        var fulfillmentText: String? = ""
+        var fulfillmentText: String? = null
         @JsonProperty("fulfillmentMessages")
-        var fulfillmentMessages: List<FulfillmentMessage>? = mutableListOf()
+        var fulfillmentMessages: List<FulfillmentMessage>? = null
         @JsonProperty("source")
-        var source: String? = ""
+        var source: String? = null
         @JsonProperty("payload")
-        var payload: Map<String, Any>? = mapOf()
+        var payload: Map<String, Any>? = null
         @JsonProperty("outputContexts")
-        var outputContexts: List<FulfillmentContext>? = mutableListOf()
+        var outputContexts: List<FulfillmentContext>? = null
 
         @JsonProperty("followupEventInput")
-        var followupEventInput: FulfillmentEventInput? = FulfillmentEventInput()
+        var followupEventInput: FulfillmentEventInput? = null
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

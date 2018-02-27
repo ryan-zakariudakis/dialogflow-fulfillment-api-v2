@@ -1,6 +1,7 @@
 package com.ryanz.diagflow.webhook.request
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.ryanz.diagflow.webhook.FulfillmentContext
 import com.ryanz.diagflow.webhook.FulfillmentMessage

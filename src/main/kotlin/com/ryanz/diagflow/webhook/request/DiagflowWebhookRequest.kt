@@ -1,10 +1,12 @@
 package com.ryanz.diagflow.webhook.request
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 
 // https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookRequest
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 class DiagflowWebhookRequest() {
 
         constructor(session: String, responseId: String, queryResult: DiagflowQueryResult, originalDetectIntentRequest: FulfillmentOriginalDetectIntentRequest): this() {

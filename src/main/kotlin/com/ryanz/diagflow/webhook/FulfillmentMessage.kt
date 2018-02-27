@@ -1,6 +1,7 @@
 package com.ryanz.diagflow.webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
@@ -8,6 +9,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder
 
 // https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Message
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 class FulfillmentMessage() {
 
         constructor(platform: FulfillmentIntentPlatform, text: FulfillmentText?, image: FulfillmentImage?, quickReplies: FulfillmentQuickReply?, card: FulfillmentCard?, payload: Map<String, Any>?, simpleResponses: FulfillmentSimpleResponses?, basicCard: FulfillmentBasicCard?, suggestions: FulfillmentSuggestions?, linkOutSuggestion: FulfillmentLinkOutSuggestion?, listSelect: FulfillmentListSelect?, carouselSelect: FulfillmentCarouselSelect?): this() {
@@ -28,28 +30,28 @@ class FulfillmentMessage() {
         @JsonProperty("platform")
         var platform: FulfillmentIntentPlatform = FulfillmentIntentPlatform.PLATFORM_UNSPECIFIED
         @JsonProperty("text")
-        var text: FulfillmentText? = FulfillmentText()
+        var text: FulfillmentText? = null
         @JsonProperty("image")
-        var image: FulfillmentImage? = FulfillmentImage()
+        var image: FulfillmentImage? = null
         @JsonProperty("quickReplies")
-        var quickReplies: FulfillmentQuickReply? = FulfillmentQuickReply()
+        var quickReplies: FulfillmentQuickReply? = null
         @JsonProperty("card")
-        var card: FulfillmentCard? = FulfillmentCard()
+        var card: FulfillmentCard? = null
         @JsonProperty("payload")
-        var payload: Map<String, Any>? = mapOf()
+        var payload: Map<String, Any>? = null
         @JsonProperty("simpleResponses")
-        var simpleResponses: FulfillmentSimpleResponses? = FulfillmentSimpleResponses()
+        var simpleResponses: FulfillmentSimpleResponses? = null
         @JsonProperty("basicCard")
-        var basicCard: FulfillmentBasicCard? = FulfillmentBasicCard()
+        var basicCard: FulfillmentBasicCard? = null
         @JsonProperty("suggestions")
-        var suggestions: FulfillmentSuggestions? = FulfillmentSuggestions()
+        var suggestions: FulfillmentSuggestions? = null
         @JsonProperty("linkOutSuggestion")
-        var linkOutSuggestion: FulfillmentLinkOutSuggestion? = FulfillmentLinkOutSuggestion()
+        var linkOutSuggestion: FulfillmentLinkOutSuggestion? = null
         @JsonProperty("listSelect")
-        var listSelect: FulfillmentListSelect? = FulfillmentListSelect()
+        var listSelect: FulfillmentListSelect? = null
 
         @JsonProperty("carouselSelect")
-        var carouselSelect: FulfillmentCarouselSelect? = FulfillmentCarouselSelect()
+        var carouselSelect: FulfillmentCarouselSelect? = null
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)
