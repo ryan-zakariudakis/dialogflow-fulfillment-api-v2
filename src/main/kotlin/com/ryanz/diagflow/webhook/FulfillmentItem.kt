@@ -20,14 +20,14 @@ class FulfillmentItem() {
         }
 
         @JsonProperty("info")
-        var info: FulfillmentSelectItemInfo? = FulfillmentSelectItemInfo()
+        var info: FulfillmentSelectItemInfo? = null
         @JsonProperty("title")
         var title: String? = ""
         @JsonProperty("description")
         var description: String? = ""
 
         @JsonProperty("image")
-        var image: FulfillmentImage? = FulfillmentImage()
+        var image: FulfillmentImage? = null
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)
