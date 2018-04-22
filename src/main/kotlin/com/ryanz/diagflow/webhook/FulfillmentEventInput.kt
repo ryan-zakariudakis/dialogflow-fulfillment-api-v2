@@ -12,7 +12,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 class FulfillmentEventInput() {
 
-        constructor(name: String?, parameters: Map<String, Any>?, languageCode: String?): this() {
+        constructor(name: String?, parameters: Map<String, Any?>?, languageCode: String?): this() {
                 this.name = name
                 this.parameters = parameters
                 this.languageCode = languageCode
@@ -20,7 +20,7 @@ class FulfillmentEventInput() {
         @JsonProperty("name")
         var name: String? = ""
         @JsonProperty("parameters")
-        var parameters: Map<String, Any>? = mapOf()
+        var parameters: Map<String, Any?>? = mapOf()
 
         @JsonProperty("languageCode")
         var languageCode: String? = ""
