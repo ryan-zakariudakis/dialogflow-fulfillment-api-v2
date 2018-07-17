@@ -3,18 +3,18 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ryanz.diagflow</groupId>
-    <artifactId>diagflow-v2beta1-kotlin-api-model</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <groupId>com.ryanz.dialogflow</groupId>
+    <artifactId>dialogflow-v2-kotlin-api-model</artifactId>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>com.ryanz.diagflow diagflow-v2beta1-kotlin-api-model</name>
+    <name>com.ryanz.dialogflow dialogflow-v2-kotlin-api-model</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <kotlin.version>1.2.50</kotlin.version>
+        <kotlin.version>1.2.51</kotlin.version>
         <jackson-annotations.version>2.9.4</jackson-annotations.version>
     </properties>
 

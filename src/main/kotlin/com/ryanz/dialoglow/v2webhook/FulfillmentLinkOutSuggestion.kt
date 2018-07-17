@@ -1,4 +1,4 @@
-package com.ryanz.diagflow.webhook
+package com.ryanz.dialoglow.v2webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,27 +7,22 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Item
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#LinkOutSuggestion
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentItem() {
+class FulfillmentLinkOutSuggestion() {
 
-        constructor(info: FulfillmentSelectItemInfo?, title: String?, description: String?, image: FulfillmentImage?): this() {
-                this.info = info
-                this.title = title
-                this.description = description
-                this.image = image
+
+        constructor(destinationName: String?, uri: String?): this() {
+                this.destinationName = destinationName
+                this.uri = uri
         }
 
-        @JsonProperty("info")
-        var info: FulfillmentSelectItemInfo? = null
-        @JsonProperty("title")
-        var title: String? = ""
-        @JsonProperty("description")
-        var description: String? = ""
+        @JsonProperty("destinationName")
+        var destinationName: String? = ""
 
-        @JsonProperty("image")
-        var image: FulfillmentImage? = null
+        @JsonProperty("uri")
+        var uri: String? = ""
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

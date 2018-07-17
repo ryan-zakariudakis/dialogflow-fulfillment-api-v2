@@ -1,11 +1,11 @@
-package com.ryanz.diagflow.webhook.response
+package com.ryanz.dialoglow.v2webhook.response
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.ryanz.diagflow.webhook.FulfillmentContext
-import com.ryanz.diagflow.webhook.FulfillmentEventInput
-import com.ryanz.diagflow.webhook.FulfillmentMessage
+import com.ryanz.dialoglow.v2webhook.FulfillmentContext
+import com.ryanz.dialoglow.v2webhook.FulfillmentEventInput
+import com.ryanz.dialoglow.v2webhook.FulfillmentMessage
 import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder

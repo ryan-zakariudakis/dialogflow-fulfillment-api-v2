@@ -1,4 +1,4 @@
-package com.ryanz.diagflow.webhook
+package com.ryanz.dialoglow.v2webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,23 +7,27 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.sessions/detectIntent#EventInput
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Item
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentEventInput() {
+class FulfillmentItem() {
 
-        constructor(name: String?, parameters: Map<String, Any?>?, languageCode: String?): this() {
-                this.name = name
-                this.parameters = parameters
-                this.languageCode = languageCode
+        constructor(info: FulfillmentSelectItemInfo?, title: String?, description: String?, image: FulfillmentImage?): this() {
+                this.info = info
+                this.title = title
+                this.description = description
+                this.image = image
         }
-        @JsonProperty("name")
-        var name: String? = ""
-        @JsonProperty("parameters")
-        var parameters: Map<String, Any?>? = mapOf()
 
-        @JsonProperty("languageCode")
-        var languageCode: String? = ""
+        @JsonProperty("info")
+        var info: FulfillmentSelectItemInfo? = null
+        @JsonProperty("title")
+        var title: String? = ""
+        @JsonProperty("description")
+        var description: String? = ""
+
+        @JsonProperty("image")
+        var image: FulfillmentImage? = null
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

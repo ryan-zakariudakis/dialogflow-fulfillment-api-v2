@@ -1,4 +1,4 @@
-package com.ryanz.diagflow.webhook
+package com.ryanz.dialoglow.v2webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,30 +7,21 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#BasicCard
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#QuickReplies
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentBasicCard() {
+class FulfillmentQuickReply() {
 
-        constructor(title: String?, subtitle: String?, formattedText: String?, image: FulfillmentImage?, buttons: List<FulfillmentButton>?): this() {
+        constructor(title: String?, quickReplies: List<String>?): this() {
                 this.title = title
-                this.subtitle = subtitle
-                this.formattedText = formattedText
-                this.image = image
-                this.buttons = buttons
+                this.quickReplies = quickReplies
         }
 
         @JsonProperty("title")
         var title: String? = ""
-        @JsonProperty("subtitle")
-        var subtitle: String? = ""
-        @JsonProperty("formattedText")
-        var formattedText: String? = ""
-        @JsonProperty("image")
-        var image: FulfillmentImage? = FulfillmentImage()
 
-        @JsonProperty("buttons")
-        var buttons: List<FulfillmentButton>? = mutableListOf()
+        @JsonProperty("quickReplies")
+        var quickReplies: List<String>? = mutableListOf()
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

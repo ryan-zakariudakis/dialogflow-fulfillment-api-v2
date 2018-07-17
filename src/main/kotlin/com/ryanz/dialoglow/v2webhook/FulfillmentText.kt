@@ -1,4 +1,4 @@
-package com.ryanz.diagflow.webhook
+package com.ryanz.dialoglow.v2webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,23 +7,19 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#ListSelect
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Text
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentListSelect() {
+class FulfillmentText() {
 
-        constructor(title: String?, items: List<FulfillmentItem>?): this() {
-                this.title = title
-                this.items = items
-        }
+    constructor(text: List<String>?): this() {
+        this.text = text
+    }
 
-        @JsonProperty("title")
-        var title: String? = ""
+        @JsonProperty("text")
+        var text: List<String>? = mutableListOf()
 
-        @JsonProperty("items")
-        var items: List<FulfillmentItem>? = mutableListOf()
-
-        override fun equals(other: Any?): Boolean {
+    override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)
         }
 
