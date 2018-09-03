@@ -1,4 +1,4 @@
-package com.ryanz.dialoglow.v2webhook
+package com.ryanz.dialogflow.v2webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,22 +7,27 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#LinkOutSuggestion
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Card
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentLinkOutSuggestion() {
+class FulfillmentCard() {
 
-
-        constructor(destinationName: String?, uri: String?): this() {
-                this.destinationName = destinationName
-                this.uri = uri
+        constructor(title: String?, subtitle: String?, imageUri: String?, buttons: List<FulfillmentButton>?): this() {
+                this.title = title
+                this.subtitle = subtitle
+                this.imageUri = imageUri
+                this.buttons = buttons
         }
 
-        @JsonProperty("destinationName")
-        var destinationName: String? = ""
+        @JsonProperty("title")
+        var title: String? = ""
+        @JsonProperty("subtitle")
+        var subtitle: String? = ""
+        @JsonProperty("imageUri")
+        var imageUri: String? = ""
 
-        @JsonProperty("uri")
-        var uri: String? = ""
+        @JsonProperty("buttons")
+        var buttons: List<FulfillmentButton>? = mutableListOf()
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

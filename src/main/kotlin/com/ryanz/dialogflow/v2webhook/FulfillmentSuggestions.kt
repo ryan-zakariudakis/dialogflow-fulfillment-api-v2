@@ -1,4 +1,4 @@
-package com.ryanz.dialoglow.v2webhook
+package com.ryanz.dialogflow.v2webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude

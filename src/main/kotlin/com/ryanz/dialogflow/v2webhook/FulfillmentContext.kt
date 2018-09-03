@@ -1,4 +1,4 @@
-package com.ryanz.dialoglow.v2webhook
+package com.ryanz.dialogflow.v2webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,27 +7,24 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Card
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.sessions.contexts#Context
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentCard() {
+class FulfillmentContext() {
 
-        constructor(title: String?, subtitle: String?, imageUri: String?, buttons: List<FulfillmentButton>?): this() {
-                this.title = title
-                this.subtitle = subtitle
-                this.imageUri = imageUri
-                this.buttons = buttons
+        constructor(name: String?, lifespanCount: Int?, parameters: Map<String, Any>?): this() {
+                this.name = name
+                this.lifespanCount = lifespanCount
+                this.parameters = parameters
         }
 
-        @JsonProperty("title")
-        var title: String? = ""
-        @JsonProperty("subtitle")
-        var subtitle: String? = ""
-        @JsonProperty("imageUri")
-        var imageUri: String? = ""
+        @JsonProperty("name")
+        var name: String? = ""
+        @JsonProperty("lifespanCount")
+        var lifespanCount: Int? = 0
 
-        @JsonProperty("buttons")
-        var buttons: List<FulfillmentButton>? = mutableListOf()
+        @JsonProperty("parameters")
+        var parameters: Map<String, Any>? = mapOf()
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

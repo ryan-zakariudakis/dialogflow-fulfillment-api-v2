@@ -1,4 +1,4 @@
-package com.ryanz.dialoglow.v2webhook
+package com.ryanz.dialogflow.v2webhook
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,30 +7,27 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#BasicCard
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Item
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentBasicCard() {
+class FulfillmentItem() {
 
-        constructor(title: String?, subtitle: String?, formattedText: String?, image: FulfillmentImage?, buttons: List<FulfillmentButton>?): this() {
+        constructor(info: FulfillmentSelectItemInfo?, title: String?, description: String?, image: FulfillmentImage?): this() {
+                this.info = info
                 this.title = title
-                this.subtitle = subtitle
-                this.formattedText = formattedText
+                this.description = description
                 this.image = image
-                this.buttons = buttons
         }
 
+        @JsonProperty("info")
+        var info: FulfillmentSelectItemInfo? = null
         @JsonProperty("title")
         var title: String? = ""
-        @JsonProperty("subtitle")
-        var subtitle: String? = ""
-        @JsonProperty("formattedText")
-        var formattedText: String? = ""
-        @JsonProperty("image")
-        var image: FulfillmentImage? = FulfillmentImage()
+        @JsonProperty("description")
+        var description: String? = ""
 
-        @JsonProperty("buttons")
-        var buttons: List<FulfillmentButton>? = mutableListOf()
+        @JsonProperty("image")
+        var image: FulfillmentImage? = null
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)
