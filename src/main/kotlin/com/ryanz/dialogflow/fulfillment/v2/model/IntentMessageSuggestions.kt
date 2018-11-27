@@ -7,17 +7,17 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Suggestions
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagesuggestions.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentSuggestions() {
+class IntentMessageSuggestions() {
 
-    constructor(suggestions: List<FulfillmentSuggestion>?): this() {
+    constructor(suggestions: List<IntentMessageSuggestion>?): this() {
         this.suggestions = suggestions
     }
 
     @JsonProperty("suggestions")
-    var suggestions: List<FulfillmentSuggestion>? = mutableListOf()
+    var suggestions: List<IntentMessageSuggestion>? = mutableListOf()
 
     override fun equals(other: Any?): Boolean {
         return EqualsBuilder.reflectionEquals(this, other)
@@ -31,10 +31,10 @@ class FulfillmentSuggestions() {
         return ToStringBuilder.reflectionToString(this)
     }
 }
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Suggestion
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagesuggestion.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentSuggestion() {
+class IntentMessageSuggestion() {
 
 
     constructor(title: String?): this() {

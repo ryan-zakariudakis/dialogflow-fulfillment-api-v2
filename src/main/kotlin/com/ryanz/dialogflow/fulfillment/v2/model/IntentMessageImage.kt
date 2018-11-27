@@ -7,19 +7,22 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Text
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessageimage.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentText() {
+class IntentMessageImage() {
 
-    constructor(text: List<String>?): this() {
-        this.text = text
-    }
+        constructor(imageUri: String?, accessibilityText: String?): this() {
+                this.accessibilityText = accessibilityText
+                this.imageUri = imageUri
+        }
 
-        @JsonProperty("text")
-        var text: List<String>? = mutableListOf()
+        @JsonProperty("accessibilityText")
+        var accessibilityText: String? = ""
+        @JsonProperty("imageUri")
+        var imageUri: String? = ""
 
-    override fun equals(other: Any?): Boolean {
+        override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)
         }
 

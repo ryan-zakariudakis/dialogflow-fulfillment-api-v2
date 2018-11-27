@@ -7,21 +7,16 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#ListSelect
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagebasiccardbuttonopenuriaction.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentListSelect() {
+class IntentMessageBasicCardButtonOpenUriAction() {
 
-        constructor(title: String?, items: List<FulfillmentItem>?): this() {
-                this.title = title
-                this.items = items
+        constructor(uri: String?): this() {
+                this.uri = uri
         }
-
-        @JsonProperty("title")
-        var title: String? = ""
-
-        @JsonProperty("items")
-        var items: List<FulfillmentItem>? = mutableListOf()
+        @JsonProperty("uri")
+        var uri: String? = ""
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

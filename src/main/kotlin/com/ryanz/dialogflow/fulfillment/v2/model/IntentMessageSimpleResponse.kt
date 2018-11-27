@@ -7,24 +7,17 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#SimpleResponse
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagesimpleresponses.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentSimpleResponse() {
+class IntentMessageSimpleResponses() {
 
-        constructor(textToSpeech: String?, ssml: String?, displayText: String?): this() {
-                this.textToSpeech = textToSpeech
-                this.ssml = ssml
-                this.displayText = displayText
+        constructor(simpleResponses: List<IntentMessageSimpleResponse>?): this() {
+                this.simpleResponses = simpleResponses
         }
 
-        @JsonProperty("textToSpeech")
-        var textToSpeech: String? = null
-        @JsonProperty("ssml")
-        var ssml: String? = null
-
-        @JsonProperty("displayText")
-        var displayText: String? = ""
+        @JsonProperty("simpleResponses")
+        var simpleResponses: List<IntentMessageSimpleResponse>? = mutableListOf()
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)
@@ -38,17 +31,24 @@ class FulfillmentSimpleResponse() {
                 return ToStringBuilder.reflectionToString(this)
         }
 }
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#SimpleResponses
+
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagesimpleresponse.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentSimpleResponses() {
+class IntentMessageSimpleResponse() {
 
-        constructor(simpleResponses: List<FulfillmentSimpleResponse>?): this() {
-                this.simpleResponses = simpleResponses
+        constructor(textToSpeech: String?, ssml: String?, displayText: String?): this() {
+                this.displayText = displayText
+                this.ssml = ssml
+                this.textToSpeech = textToSpeech
         }
 
-        @JsonProperty("simpleResponses")
-        var simpleResponses: List<FulfillmentSimpleResponse>? = mutableListOf()
+        @JsonProperty("displayText")
+        var displayText: String? = ""
+        @JsonProperty("ssml")
+        var ssml: String? = null
+        @JsonProperty("textToSpeech")
+        var textToSpeech: String? = null
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

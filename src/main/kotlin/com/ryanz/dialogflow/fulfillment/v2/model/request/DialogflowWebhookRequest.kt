@@ -10,21 +10,20 @@ import com.fasterxml.jackson.annotation.JsonProperty
 class DialogflowWebhookRequest() {
 
         constructor(session: String, responseId: String, queryResult: DialogflowQueryResult, originalDetectIntentRequest: FulfillmentOriginalDetectIntentRequest): this() {
-                this.session = session
-                this.responseId = responseId
-                this.queryResult = queryResult
                 this.originalDetectIntentRequest = originalDetectIntentRequest
+                this.queryResult = queryResult
+                this.responseId = responseId
+                this.session = session
         }
-
-        @JsonProperty(value = "session")
-        var session: String = ""
-        @JsonProperty(value = "responseId")
-        var responseId: String = ""
-        @JsonProperty(value = "queryResult")
-        var queryResult: DialogflowQueryResult = DialogflowQueryResult()
 
         @JsonProperty(value = "originalDetectIntentRequest")
         var originalDetectIntentRequest: FulfillmentOriginalDetectIntentRequest = FulfillmentOriginalDetectIntentRequest()
+        @JsonProperty(value = "queryResult")
+        var queryResult: DialogflowQueryResult = DialogflowQueryResult()
+        @JsonProperty(value = "responseId")
+        var responseId: String = ""
+        @JsonProperty(value = "session")
+        var session: String = ""
 
         override fun equals(other: Any?): Boolean {
                 if (this === other) return true

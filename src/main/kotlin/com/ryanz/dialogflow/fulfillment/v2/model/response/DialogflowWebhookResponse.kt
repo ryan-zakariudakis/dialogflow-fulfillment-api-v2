@@ -3,9 +3,9 @@ package com.ryanz.dialogflow.fulfillment.v2.model.response
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.ryanz.dialogflow.fulfillment.v2.model.FulfillmentContext
-import com.ryanz.dialogflow.fulfillment.v2.model.FulfillmentEventInput
-import com.ryanz.dialogflow.fulfillment.v2.model.FulfillmentMessage
+import com.ryanz.dialogflow.fulfillment.v2.model.DialogflowContext
+import com.ryanz.dialogflow.fulfillment.v2.model.EventInput
+import com.ryanz.dialogflow.fulfillment.v2.model.IntentMessage
 import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
@@ -15,7 +15,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 class DialogflowWebhookResponse() {
 
-        constructor(fulfillmentText: String?, fulfillmentMessages: List<FulfillmentMessage>?, source: String?, payload: Map<String, Any>?, outputContexts: List<FulfillmentContext>?, followupEventInput: FulfillmentEventInput?): this() {
+        constructor(fulfillmentText: String?, fulfillmentMessages: List<IntentMessage>?, source: String?, payload: Map<String, Any>?, outputContexts: List<DialogflowContext>?, followupEventInput: EventInput?): this() {
                 this.fulfillmentText = fulfillmentText
                 this.fulfillmentMessages = fulfillmentMessages
                 this.source = source
@@ -24,19 +24,18 @@ class DialogflowWebhookResponse() {
                 this.followupEventInput = followupEventInput
         }
 
+        @JsonProperty("followupEventInput")
+        var followupEventInput: EventInput? = null
+        @JsonProperty("fulfillmentMessages")
+        var fulfillmentMessages: List<IntentMessage>? = null
         @JsonProperty("fulfillmentText")
         var fulfillmentText: String? = null
-        @JsonProperty("fulfillmentMessages")
-        var fulfillmentMessages: List<FulfillmentMessage>? = null
-        @JsonProperty("source")
-        var source: String? = null
+        @JsonProperty("outputContexts")
+        var outputContexts: List<DialogflowContext>? = null
         @JsonProperty("payload")
         var payload: Map<String, Any>? = null
-        @JsonProperty("outputContexts")
-        var outputContexts: List<FulfillmentContext>? = null
-
-        @JsonProperty("followupEventInput")
-        var followupEventInput: FulfillmentEventInput? = null
+        @JsonProperty("source")
+        var source: String? = null
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

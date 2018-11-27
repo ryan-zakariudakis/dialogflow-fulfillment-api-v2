@@ -7,21 +7,20 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#SelectItemInfo
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagecardbutton.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentSelectItemInfo() {
+class IntentMessageCardButton() {
 
-        constructor(key: String?, synonyms: List<String>?): this() {
-                this.key = key
-                this.synonyms = synonyms
+        constructor(text: String?, postback: String?): this() {
+                this.postback = postback
+                this.text = text
         }
 
-        @JsonProperty("key")
-        var key: String? = ""
-
-        @JsonProperty("synonyms")
-        var synonyms: List<String>? = mutableListOf()
+        @JsonProperty("postback")
+        var postback: String? = ""
+        @JsonProperty("text")
+        var text: String? = ""
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

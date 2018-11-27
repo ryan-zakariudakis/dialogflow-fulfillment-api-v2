@@ -7,27 +7,17 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Card
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagecarouselselect.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentCard() {
+class IntentMessageCarouselSelect() {
 
-        constructor(title: String?, subtitle: String?, imageUri: String?, buttons: List<FulfillmentButton>?): this() {
-                this.title = title
-                this.subtitle = subtitle
-                this.imageUri = imageUri
-                this.buttons = buttons
+        constructor(items: List<IntentMessageCarouselSelectItem>?): this() {
+                this.items = items
         }
 
-        @JsonProperty("title")
-        var title: String? = ""
-        @JsonProperty("subtitle")
-        var subtitle: String? = ""
-        @JsonProperty("imageUri")
-        var imageUri: String? = ""
-
-        @JsonProperty("buttons")
-        var buttons: List<FulfillmentButton>? = mutableListOf()
+        @JsonProperty("items")
+        var items: List<IntentMessageCarouselSelectItem>? = mutableListOf()
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

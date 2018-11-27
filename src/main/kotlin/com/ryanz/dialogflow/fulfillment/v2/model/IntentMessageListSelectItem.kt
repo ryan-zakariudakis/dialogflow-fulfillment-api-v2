@@ -7,24 +7,26 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2context.html
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagelistselectitem.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentContext() {
+class IntentMessageListSelectItem() {
 
-        constructor(name: String?, lifespanCount: Int?, parameters: Map<String, Any>?): this() {
-                this.name = name
-                this.lifespanCount = lifespanCount
-                this.parameters = parameters
+        constructor(info: IntentMessageSelectItemInfo?, title: String?, description: String?, image: IntentMessageImage?): this() {
+                this.description = description
+                this.image = image
+                this.info = info
+                this.title = title
         }
 
-        @JsonProperty("name")
-        var name: String? = ""
-        @JsonProperty("lifespanCount")
-        var lifespanCount: Int? = 0
-
-        @JsonProperty("parameters")
-        var parameters: Map<String, Any>? = mapOf()
+        @JsonProperty("description")
+        var description: String? = ""
+        @JsonProperty("image")
+        var image: IntentMessageImage? = null
+        @JsonProperty("info")
+        var info: IntentMessageSelectItemInfo? = null
+        @JsonProperty("title")
+        var title: String? = ""
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

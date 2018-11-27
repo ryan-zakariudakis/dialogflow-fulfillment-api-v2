@@ -7,21 +7,26 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Button
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2intentmessagecard.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentButton() {
+class IntentMessageCard() {
 
-        constructor(text: String?, postback: String?): this() {
-                this.text = text
-                this.postback = postback
+        constructor(title: String?, subtitle: String?, imageUri: String?, buttons: List<IntentMessageCardButton>?): this() {
+                this.buttons = buttons
+                this.imageUri = imageUri
+                this.subtitle = subtitle
+                this.title = title
         }
 
-        @JsonProperty("text")
-        var text: String? = ""
-
-        @JsonProperty("postback")
-        var postback: String? = ""
+        @JsonProperty("buttons")
+        var buttons: List<IntentMessageCardButton>? = mutableListOf()
+        @JsonProperty("imageUri")
+        var imageUri: String? = ""
+        @JsonProperty("subtitle")
+        var subtitle: String? = ""
+        @JsonProperty("title")
+        var title: String? = ""
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

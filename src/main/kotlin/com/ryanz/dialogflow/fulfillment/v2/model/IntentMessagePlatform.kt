@@ -1,7 +1,7 @@
 package com.ryanz.dialogflow.fulfillment.v2.model
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Platform
-enum class FulfillmentIntentPlatform {
+// https://actions-on-google.github.io/actions-on-google-nodejs/modules/dialogflow_api_v2.html#googleclouddialogflowv2intentmessageplatform
+enum class IntentMessagePlatform {
     PLATFORM_UNSPECIFIED,
     FACEBOOK,
     SLACK,
