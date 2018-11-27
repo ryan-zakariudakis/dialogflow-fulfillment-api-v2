@@ -25,7 +25,7 @@ class IntentMessageBasicCard() {
         @JsonProperty("formattedText")
         var formattedText: String? = ""
         @JsonProperty("image")
-        var image: IntentMessageImage? = IntentMessageImage()
+        var image: IntentMessageImage? = null
         @JsonProperty("subtitle")
         var subtitle: String? = ""
         @JsonProperty("title")
