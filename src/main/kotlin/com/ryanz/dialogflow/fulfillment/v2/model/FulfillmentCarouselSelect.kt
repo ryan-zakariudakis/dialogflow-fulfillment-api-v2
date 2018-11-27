@@ -1,4 +1,4 @@
-package com.ryanz.dialogflow.v2webhook
+package com.ryanz.dialogflow.fulfillment.v2.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,27 +7,17 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Card
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#CarouselSelect
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentCard() {
+class FulfillmentCarouselSelect() {
 
-        constructor(title: String?, subtitle: String?, imageUri: String?, buttons: List<FulfillmentButton>?): this() {
-                this.title = title
-                this.subtitle = subtitle
-                this.imageUri = imageUri
-                this.buttons = buttons
+        constructor(items: List<FulfillmentItem>?): this() {
+                this.items = items
         }
 
-        @JsonProperty("title")
-        var title: String? = ""
-        @JsonProperty("subtitle")
-        var subtitle: String? = ""
-        @JsonProperty("imageUri")
-        var imageUri: String? = ""
-
-        @JsonProperty("buttons")
-        var buttons: List<FulfillmentButton>? = mutableListOf()
+        @JsonProperty("items")
+        var items: List<FulfillmentItem>? = mutableListOf()
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

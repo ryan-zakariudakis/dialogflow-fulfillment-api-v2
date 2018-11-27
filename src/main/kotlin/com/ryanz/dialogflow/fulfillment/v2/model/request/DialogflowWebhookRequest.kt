@@ -1,4 +1,4 @@
-package com.ryanz.dialogflow.v2webhook.request
+package com.ryanz.dialogflow.fulfillment.v2.model.request
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty
 // https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookRequest
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class DiagflowWebhookRequest() {
+class DialogflowWebhookRequest() {
 
-        constructor(session: String, responseId: String, queryResult: DiagflowQueryResult, originalDetectIntentRequest: FulfillmentOriginalDetectIntentRequest): this() {
+        constructor(session: String, responseId: String, queryResult: DialogflowQueryResult, originalDetectIntentRequest: FulfillmentOriginalDetectIntentRequest): this() {
                 this.session = session
                 this.responseId = responseId
                 this.queryResult = queryResult
@@ -21,7 +21,7 @@ class DiagflowWebhookRequest() {
         @JsonProperty(value = "responseId")
         var responseId: String = ""
         @JsonProperty(value = "queryResult")
-        var queryResult: DiagflowQueryResult = DiagflowQueryResult()
+        var queryResult: DialogflowQueryResult = DialogflowQueryResult()
 
         @JsonProperty(value = "originalDetectIntentRequest")
         var originalDetectIntentRequest: FulfillmentOriginalDetectIntentRequest = FulfillmentOriginalDetectIntentRequest()
@@ -30,7 +30,7 @@ class DiagflowWebhookRequest() {
                 if (this === other) return true
                 if (javaClass != other?.javaClass) return false
 
-                other as DiagflowWebhookRequest
+                other as DialogflowWebhookRequest
 
                 if (session != other.session) return false
                 if (responseId != other.responseId) return false
@@ -49,7 +49,7 @@ class DiagflowWebhookRequest() {
         }
 
         override fun toString(): String {
-                return "DiagflowWebhookRequest(session='$session', responseId='$responseId', queryResult=$queryResult, originalDetectIntentRequest=$originalDetectIntentRequest)"
+                return "DialogflowWebhookRequest(session='$session', responseId='$responseId', queryResult=$queryResult, originalDetectIntentRequest=$originalDetectIntentRequest)"
         }
 
 }

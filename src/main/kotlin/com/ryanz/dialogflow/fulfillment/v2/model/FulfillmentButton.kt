@@ -1,4 +1,4 @@
-package com.ryanz.dialogflow.v2webhook
+package com.ryanz.dialogflow.fulfillment.v2.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,27 +7,21 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Item
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Button
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentItem() {
+class FulfillmentButton() {
 
-        constructor(info: FulfillmentSelectItemInfo?, title: String?, description: String?, image: FulfillmentImage?): this() {
-                this.info = info
-                this.title = title
-                this.description = description
-                this.image = image
+        constructor(text: String?, postback: String?): this() {
+                this.text = text
+                this.postback = postback
         }
 
-        @JsonProperty("info")
-        var info: FulfillmentSelectItemInfo? = null
-        @JsonProperty("title")
-        var title: String? = ""
-        @JsonProperty("description")
-        var description: String? = ""
+        @JsonProperty("text")
+        var text: String? = ""
 
-        @JsonProperty("image")
-        var image: FulfillmentImage? = null
+        @JsonProperty("postback")
+        var postback: String? = ""
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

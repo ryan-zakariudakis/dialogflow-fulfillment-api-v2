@@ -1,4 +1,4 @@
-package com.ryanz.dialogflow.v2webhook
+package com.ryanz.dialogflow.fulfillment.v2.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,17 +7,17 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#CarouselSelect
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Image
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentCarouselSelect() {
+class FulfillmentImage() {
 
-        constructor(items: List<FulfillmentItem>?): this() {
-                this.items = items
+        constructor(imageUri: String?): this() {
+                this.imageUri = imageUri
         }
 
-        @JsonProperty("items")
-        var items: List<FulfillmentItem>? = mutableListOf()
+        @JsonProperty("imageUri")
+        var imageUri: String? = ""
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

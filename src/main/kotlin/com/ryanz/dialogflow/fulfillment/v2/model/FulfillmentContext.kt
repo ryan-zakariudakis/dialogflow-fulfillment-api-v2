@@ -1,4 +1,4 @@
-package com.ryanz.dialogflow.v2webhook
+package com.ryanz.dialogflow.fulfillment.v2.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,21 +7,24 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#SelectItemInfo
+// https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2context.html
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentSelectItemInfo() {
+class FulfillmentContext() {
 
-        constructor(key: String?, synonyms: List<String>?): this() {
-                this.key = key
-                this.synonyms = synonyms
+        constructor(name: String?, lifespanCount: Int?, parameters: Map<String, Any>?): this() {
+                this.name = name
+                this.lifespanCount = lifespanCount
+                this.parameters = parameters
         }
 
-        @JsonProperty("key")
-        var key: String? = ""
+        @JsonProperty("name")
+        var name: String? = ""
+        @JsonProperty("lifespanCount")
+        var lifespanCount: Int? = 0
 
-        @JsonProperty("synonyms")
-        var synonyms: List<String>? = mutableListOf()
+        @JsonProperty("parameters")
+        var parameters: Map<String, Any>? = mapOf()
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)

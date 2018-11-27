@@ -1,17 +1,16 @@
-package com.ryanz.dialogflow.v2webhook.request
+package com.ryanz.dialogflow.fulfillment.v2.model.request
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.ryanz.dialogflow.v2webhook.FulfillmentContext
-import com.ryanz.dialogflow.v2webhook.FulfillmentMessage
+import com.ryanz.dialogflow.fulfillment.v2.model.FulfillmentContext
+import com.ryanz.dialogflow.fulfillment.v2.model.FulfillmentMessage
 import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
 // https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.sessions/detectIntent#QueryResult
 @JsonIgnoreProperties(ignoreUnknown = true)
-class DiagflowQueryResult() {
+class DialogflowQueryResult() {
 
         constructor(queryText: String, languageCode: String, speechRecognitionConfidence: Int, action: String, parameters: Map<String, Any?>, allRequiredParamsPresent: Boolean, fulfillmentText: String, fulfillmentMessages: List<FulfillmentMessage>, webhookSource: String, webhookPayload: Map<String, Any?>, outputContexts: List<FulfillmentContext>, intent: FulfillmentIntent, intentDetectionConfidence: Int, diagnosticInfo: Map<String, Any?>): this() {
                 this.queryText = queryText

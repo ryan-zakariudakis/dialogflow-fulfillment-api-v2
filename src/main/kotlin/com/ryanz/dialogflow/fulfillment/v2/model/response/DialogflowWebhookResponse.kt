@@ -1,11 +1,11 @@
-package com.ryanz.dialogflow.v2webhook.response
+package com.ryanz.dialogflow.fulfillment.v2.model.response
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.ryanz.dialogflow.v2webhook.FulfillmentContext
-import com.ryanz.dialogflow.v2webhook.FulfillmentEventInput
-import com.ryanz.dialogflow.v2webhook.FulfillmentMessage
+import com.ryanz.dialogflow.fulfillment.v2.model.FulfillmentContext
+import com.ryanz.dialogflow.fulfillment.v2.model.FulfillmentEventInput
+import com.ryanz.dialogflow.fulfillment.v2.model.FulfillmentMessage
 import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
@@ -13,7 +13,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder
 // https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookResponse
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class DiagflowWebhookResponse() {
+class DialogflowWebhookResponse() {
 
         constructor(fulfillmentText: String?, fulfillmentMessages: List<FulfillmentMessage>?, source: String?, payload: Map<String, Any>?, outputContexts: List<FulfillmentContext>?, followupEventInput: FulfillmentEventInput?): this() {
                 this.fulfillmentText = fulfillmentText

@@ -4,11 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ryanz.dialogflow</groupId>
-    <artifactId>dialogflow-v2-kotlin-api-model</artifactId>
+    <artifactId>dialogflow-v2-api</artifactId>
     <version>1.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>com.ryanz.dialogflow dialogflow-v2-kotlin-api-model</name>
+    <name>[kotlin] dialogflow-v2-api</name>
+    <description>Kotlin api for DialogFlow Fulfillment API v2 for actions-on-google based on https://actions-on-google.github.io/actions-on-google-nodejs/modules/dialogflow_api_v2.html</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,7 +46,6 @@
 
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
         <plugins>
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>
@@ -54,7 +54,9 @@
                 <executions>
                     <execution>
                         <id>compile</id>
-                        <goals> <goal>compile</goal> </goals>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
                         <configuration>
                             <sourceDirs>
                                 <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>

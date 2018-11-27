@@ -1,4 +1,4 @@
-package com.ryanz.dialogflow.v2webhook
+package com.ryanz.dialogflow.fulfillment.v2.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,16 +7,15 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#BasicCard
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Card
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentBasicCard() {
+class FulfillmentCard() {
 
-        constructor(title: String?, subtitle: String?, formattedText: String?, image: FulfillmentImage?, buttons: List<FulfillmentButton>?): this() {
+        constructor(title: String?, subtitle: String?, imageUri: String?, buttons: List<FulfillmentButton>?): this() {
                 this.title = title
                 this.subtitle = subtitle
-                this.formattedText = formattedText
-                this.image = image
+                this.imageUri = imageUri
                 this.buttons = buttons
         }
 
@@ -24,10 +23,8 @@ class FulfillmentBasicCard() {
         var title: String? = ""
         @JsonProperty("subtitle")
         var subtitle: String? = ""
-        @JsonProperty("formattedText")
-        var formattedText: String? = ""
-        @JsonProperty("image")
-        var image: FulfillmentImage? = FulfillmentImage()
+        @JsonProperty("imageUri")
+        var imageUri: String? = ""
 
         @JsonProperty("buttons")
         var buttons: List<FulfillmentButton>? = mutableListOf()

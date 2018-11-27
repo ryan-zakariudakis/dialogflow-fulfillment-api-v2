@@ -1,4 +1,4 @@
-package com.ryanz.dialogflow.v2webhook
+package com.ryanz.dialogflow.fulfillment.v2.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
@@ -7,21 +7,22 @@ import org.apache.commons.lang3.builder.EqualsBuilder
 import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
 
-// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#Button
+// https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/projects.agent.intents#LinkOutSuggestion
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-class FulfillmentButton() {
+class FulfillmentLinkOutSuggestion() {
 
-        constructor(text: String?, postback: String?): this() {
-                this.text = text
-                this.postback = postback
+
+        constructor(destinationName: String?, uri: String?): this() {
+                this.destinationName = destinationName
+                this.uri = uri
         }
 
-        @JsonProperty("text")
-        var text: String? = ""
+        @JsonProperty("destinationName")
+        var destinationName: String? = ""
 
-        @JsonProperty("postback")
-        var postback: String? = ""
+        @JsonProperty("uri")
+        var uri: String? = ""
 
         override fun equals(other: Any?): Boolean {
                 return EqualsBuilder.reflectionEquals(this, other)
