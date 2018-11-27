@@ -1,32 +1,30 @@
-# Kotlin data structures for the Diagflow Fulfillment Webhook API
+# Kotlin data structures for the Dialogflow Fulfillment Webhook API
 
-kotlin implementation of api request and response for the diagflow v2 webhook mechanism 
+kotlin API for the Dialogflow Fulfillment v2 API for use in jvm based projects
 
-https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookRequest 
+https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2webhookrequest.html
 
-https://dialogflow.com/docs/reference/api-v2/rest/v2beta1/WebhookResponse
+https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow_api_v2.googleclouddialogflowv2webhookresponse.html
 
 Do not use Kotlin data classes.  Use plain classes and remember to implement equals()/hashCode()/toString(). Use Commons-Lang to counteract the boilerplate annoyance.
-
 This is to ensure optional fields can be assigned defaults without requiring `?` throught the code base and the resultant `!!` in any clients.
-
 This is required because of the way jackson works, it tries to override existing values with null on new object creation.
 
 ## To use this project
 
 `cd ~`
 
-`git clone git@gitlab.com:ryan.zakariudakis/diagflow-v2beta1-kotlin-api-model.git` 
+`git clone git@github.com:ryan-zakariudakis/dialogflow-fulfillment-api-v2.git`
 
-`cd diagflow-v2beta1-kotlin-api-model`
+`cd dialogflow-fulfillment-api-v2`
 
 `mvn clean install`
 
-Add this to your pom.xml:
+Add this to your pom.xml for your own implementing project:
 
 `<dependency>
  <groupId>com.ryanz.diagflow</groupId>
- <artifactId>diagflow-v2beta1-kotlin-api-model</artifactId>
+ <artifactId>dialogflow-fulfillment-api</artifactId>
  <version>1.0.0-SNAPSHOT</version>
 </dependency>`
 
